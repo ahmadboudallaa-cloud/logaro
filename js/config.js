@@ -14,7 +14,7 @@ export const firebaseConfig = {
   authDomain: "test-691ba.firebaseapp.com",
   // À COMPLÉTER : adresse affichée en haut de la page « Realtime Database »
   // (ex. "https://test-691ba-default-rtdb.europe-west1.firebasedatabase.app")
-    databaseURL: "https://test-691ba-default-rtdb.firebaseio.com/",
+    databaseURL: "https://test-691ba-default-rtdb.firebaseio.com/rooms",
   projectId: "test-691ba",
   storageBucket: "test-691ba.firebasestorage.app",
   messagingSenderId: "403456630836",
