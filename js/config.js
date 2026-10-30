@@ -10,8 +10,11 @@
 // =============================================================
 
 export const firebaseConfig = {
- apiKey: "AIzaSyAKcGRhtT3tR0tjsfoctC2NHYHuhW7nrP4",
+  apiKey: "AIzaSyAKcGRhtT3tR0tjsfoctC2NHYHuhW7nrP4",
   authDomain: "test-691ba.firebaseapp.com",
+  // À COMPLÉTER : adresse affichée en haut de la page « Realtime Database »
+  // (ex. "https://test-691ba-default-rtdb.europe-west1.firebasedatabase.app")
+  databaseURL: "",
   projectId: "test-691ba",
   storageBucket: "test-691ba.firebasestorage.app",
   messagingSenderId: "403456630836",
@@ -52,4 +55,13 @@ export function mergeSettings(saved = {}) {
 /** Firebase est considéré comme configuré si les champs essentiels sont remplis. */
 export function isFirebaseConfigured(config = firebaseConfig) {
   return Boolean(config.apiKey && config.databaseURL && config.projectId);
+}
+
+/** Configuration commencée mais incomplète : on préfère une erreur claire à un mode local silencieux. */
+export function firebaseConfigProblem(config = firebaseConfig) {
+  const filled = Object.values(config).some(Boolean);
+  if (!filled || isFirebaseConfigured(config)) return null;
+  const missing = ["apiKey", "databaseURL", "projectId"].filter((key) => !config[key]);
+  return `Configuration Firebase incomplète dans js/config.js : ${missing.join(", ")} manquant. `
+    + "Créez une « Realtime Database » dans la console Firebase et copiez son adresse dans databaseURL.";
 }

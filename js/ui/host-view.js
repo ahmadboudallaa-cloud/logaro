@@ -446,6 +446,9 @@ function layoutHtml(code, joinUrl, mode) {
             ${mode === "local" ? `<button class="btn btn-ghost" data-action="open-player-tab">${icon("external")}Onglet joueur</button>` : ""}
           </div>
           ${mode === "local" ? '<p class="hint">Mode local : les joueurs doivent ouvrir le lien dans d\'autres onglets de ce navigateur.</p>' : ""}
+          ${mode === "firebase" && ["localhost", "127.0.0.1"].includes(location.hostname)
+            ? '<p class="error-text">Ce lien utilise « localhost » : les téléphones ne peuvent pas l\'ouvrir. Ouvrez la page avec l\'adresse « Réseau local » affichée par npm start, ou mettez le site en ligne.</p>'
+            : ""}
         </div>
       </section>
       <section class="panel">
