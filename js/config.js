@@ -10,16 +10,14 @@
 // =============================================================
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyAKcGRhtT3tR0tjsfoctC2NHYHuhW7nrP4",
-  authDomain: "test-691ba.firebaseapp.com",
-  // À COMPLÉTER : adresse affichée en haut de la page « Realtime Database »
-  // (ex. "https://test-691ba-default-rtdb.europe-west1.firebasedatabase.app")
-    databaseURL: "https://test-691ba-default-rtdb.firebaseio.com/rooms",
-  projectId: "test-691ba",
-  storageBucket: "test-691ba.firebasestorage.app",
-  messagingSenderId: "403456630836",
-  appId: "1:403456630836:web:fd3edd5040bb5503572a61",
-  measurementId: "G-RD7YS65WS5"
+    apiKey: "AIzaSyAtuUjxssnSeDOwabts34diln2lwlQxrKc",
+  authDomain: "lougarou-96568.firebaseapp.com",
+  databaseURL: "https://lougarou-96568-default-rtdb.europe-west1.firebasedatabase.app/rooms",
+  projectId: "lougarou-96568",
+  storageBucket: "lougarou-96568.firebasestorage.app",
+  messagingSenderId: "123175102821",
+  appId: "1:123175102821:web:204ad2979a684c1d82d98c",
+  measurementId: "G-NNNEJTG6DT"
 };
 
 // Version du SDK Firebase chargée depuis le CDN officiel (gstatic).
