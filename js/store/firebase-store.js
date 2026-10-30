@@ -25,7 +25,9 @@ export function friendlyFirebaseError(error) {
   const code = String(error?.code || error?.message || "");
   if (/permission/i.test(code)) return "Action refusée par les règles de sécurité Firebase.";
   if (/network|unavailable|disconnect/i.test(code)) return "Connexion au serveur impossible. Vérifiez votre réseau.";
-  if (/operation-not-allowed|admin-restricted/i.test(code)) return "Activez la connexion anonyme dans Firebase Authentication.";
+  if (/operation-not-allowed|admin-restricted|configuration-not-found/i.test(code)) {
+    return "Firebase Authentication n'est pas activé : console Firebase > Authentication > Commencer, puis activez la méthode « Anonyme ».";
+  }
   return error?.message || "Erreur Firebase inconnue.";
 }
 
