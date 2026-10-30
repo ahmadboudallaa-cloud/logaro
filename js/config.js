@@ -10,14 +10,13 @@
 // =============================================================
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyAtuUjxssnSeDOwabts34diln2lwlQxrKc",
-  authDomain: "lougarou-96568.firebaseapp.com",
-  databaseURL: "https://lougarou-96568-default-rtdb.europe-west1.firebasedatabase.app/rooms",
-  projectId: "lougarou-96568",
-  storageBucket: "lougarou-96568.firebasestorage.app",
-  messagingSenderId: "123175102821",
-  appId: "1:123175102821:web:204ad2979a684c1d82d98c",
-  measurementId: "G-NNNEJTG6DT"
+    apiKey: "AIzaSyBeIMigPKEiwryU4wxvU2grEnfcG1s_kLo",
+  authDomain: "thiercelieux-2a451.firebaseapp.com",
+  databaseURL: "https://thiercelieux-2a451-default-rtdb.europe-west1.firebasedatabase.app/",
+  projectId: "thiercelieux-2a451",
+  storageBucket: "thiercelieux-2a451.firebasestorage.app",
+  messagingSenderId: "1015955798068",
+  appId: "1:1015955798068:web:53381fbd525437d6f83261"
 };
 
 // Version du SDK Firebase chargée depuis le CDN officiel (gstatic).
