@@ -1,0 +1,69 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "rooms": {
+      "$code": {
+        ".read": "auth != null && data.child('meta/hostUid').val() === auth.uid",
+        ".write": "auth != null && data.child('meta/hostUid').val() === auth.uid",
+
+        "meta": {
+          ".read": "auth != null",
+          ".write": "auth != null && !data.exists() && newData.child('hostUid').val() === auth.uid",
+          ".validate": "$code.matches(/^[A-Z]{4}$/) && newData.hasChildren(['hostUid', 'createdAt'])"
+        },
+
+        "public": {
+          ".read": "auth != null",
+          "players": {
+            "$uid": {
+              "name": {
+                ".write": "auth != null && auth.uid === $uid && !data.exists()",
+                ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 16"
+              },
+              "joinedAt": {
+                ".write": "auth != null && auth.uid === $uid && !data.exists()",
+                ".validate": "newData.isNumber()"
+              },
+              "connected": {
+                ".write": "auth != null && auth.uid === $uid && newData.parent().child('name').exists()",
+                ".validate": "newData.isBoolean()"
+              },
+              "roleSeen": {
+                ".write": "auth != null && auth.uid === $uid && newData.parent().child('name').exists()",
+                ".validate": "newData.isBoolean()"
+              }
+            }
+          },
+          "votes": {
+            "$voter": {
+              ".write": "auth != null && auth.uid === $voter && !data.exists() && newData.exists() && root.child('rooms/' + $code + '/public/phase').val() === 'VOTING' && root.child('rooms/' + $code + '/public/players/' + $voter + '/inGame').val() === true && root.child('rooms/' + $code + '/public/players/' + $voter + '/alive').val() === true && newData.val() !== $voter && root.child('rooms/' + $code + '/public/players/' + newData.val() + '/alive').val() === true && (!root.child('rooms/' + $code + '/public/voteCandidates').exists() || root.child('rooms/' + $code + '/public/voteCandidates/' + newData.val()).exists())",
+              ".validate": "newData.isString()"
+            }
+          }
+        },
+
+        "names": {
+          ".read": "auth != null",
+          "$key": {
+            ".write": "auth != null && newData.val() === auth.uid && (!data.exists() || data.val() === auth.uid)"
+          }
+        },
+
+        "private": {
+          "$uid": {
+            ".read": "auth != null && auth.uid === $uid"
+          }
+        },
+
+        "actions": {
+          "$uid": {
+            ".read": "auth != null && auth.uid === $uid",
+            ".write": "auth != null && auth.uid === $uid && root.child('rooms/' + $code + '/public/phase').val() === 'NIGHT' && root.child('rooms/' + $code + '/public/players/' + $uid + '/inGame').val() === true && root.child('rooms/' + $code + '/public/players/' + $uid + '/alive').val() === true",
+            ".validate": "newData.hasChildren(['round', 'step'])"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "thiercelieux",
+  "version": "1.0.0",
+  "description": "Application multijoueur du Loup-Garou de Thiercelieux (JavaScript vanilla + Firebase Realtime Database)",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node serve.js",
+    "test": "node --test tests/game.test.js"
+  }
+}

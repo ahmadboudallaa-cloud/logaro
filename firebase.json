@@ -1,0 +1,18 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": ".",
+    "ignore": [
+      "firebase.json",
+      "database.rules.json",
+      "package.json",
+      "serve.js",
+      "README.md",
+      "tests/**",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
