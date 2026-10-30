@@ -10,6 +10,7 @@
 // =============================================================
 
 export const firebaseConfig = {
+  
   apiKey: "AIzaSyBeIMigPKEiwryU4wxvU2grEnfcG1s_kLo",
   authDomain: "thiercelieux-2a451.firebaseapp.com",
   databaseURL: "https://thiercelieux-2a451-default-rtdb.europe-west1.firebasedatabase.app",
