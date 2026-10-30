@@ -10,9 +10,9 @@
 // =============================================================
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyBeIMigPKEiwryU4wxvU2grEnfcG1s_kLo",
+  apiKey: "AIzaSyBeIMigPKEiwryU4wxvU2grEnfcG1s_kLo",
   authDomain: "thiercelieux-2a451.firebaseapp.com",
-  databaseURL: "https://thiercelieux-2a451-default-rtdb.europe-west1.firebasedatabase.app/",
+  databaseURL: "https://thiercelieux-2a451-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "thiercelieux-2a451",
   storageBucket: "thiercelieux-2a451.firebasestorage.app",
   messagingSenderId: "1015955798068",
