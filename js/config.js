@@ -10,14 +10,13 @@
 // =============================================================
 
 export const firebaseConfig = {
-  
-  apiKey: "AIzaSyBeIMigPKEiwryU4wxvU2grEnfcG1s_kLo",
-  authDomain: "thiercelieux-2a451.firebaseapp.com",
-  databaseURL: "https://thiercelieux-2a451-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "thiercelieux-2a451",
-  storageBucket: "thiercelieux-2a451.firebasestorage.app",
-  messagingSenderId: "1015955798068",
-  appId: "1:1015955798068:web:53381fbd525437d6f83261"
+  apiKey: "AIzaSyB9phJ0sM3ke_uvEz-fLJ5lblBd1-0Oll8",
+  authDomain: "thiercelieux-jeu.firebaseapp.com",
+  databaseURL: "https://thiercelieux-jeu-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "thiercelieux-jeu",
+  storageBucket: "thiercelieux-jeu.firebasestorage.app",
+  messagingSenderId: "1092341243023",
+  appId: "1:1092341243023:web:944977ea0aa554142d24fa"
 };
 
 // Version du SDK Firebase chargée depuis le CDN officiel (gstatic).
