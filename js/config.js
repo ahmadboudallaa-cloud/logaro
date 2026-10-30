@@ -10,13 +10,13 @@
 // =============================================================
 
 export const firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
+ apiKey: "AIzaSyAKcGRhtT3tR0tjsfoctC2NHYHuhW7nrP4",
+  authDomain: "test-691ba.firebaseapp.com",
+  projectId: "test-691ba",
+  storageBucket: "test-691ba.firebasestorage.app",
+  messagingSenderId: "403456630836",
+  appId: "1:403456630836:web:fd3edd5040bb5503572a61",
+  measurementId: "G-RD7YS65WS5"
 };
 
 // Version du SDK Firebase chargée depuis le CDN officiel (gstatic).
