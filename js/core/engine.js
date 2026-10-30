@@ -656,6 +656,14 @@ export class HostEngine {
     });
   }
 
+  /** Fermeture définitive : la salle est supprimée de la base, les joueurs en sont informés. */
+  closeRoom() {
+    return this.exclusive(async () => {
+      this.stop();
+      await this.store.remove(this.base);
+    });
+  }
+
   /** Retirer un joueur (uniquement en salle d'attente). */
   removePlayer(playerId) {
     return this.exclusive(async () => {

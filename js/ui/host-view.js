@@ -397,6 +397,11 @@ export function mountHostView(root, { store, engine, code }) {
     "new-game": (button) => runAction(button, () => engine.newGame()),
     "new-game-confirm": confirmThen("Arrêter la partie en cours et revenir à la salle d'attente (joueurs conservés) ?", () => engine.newGame()),
     "reset-room": confirmThen("Réinitialiser complètement la salle ? Tous les joueurs seront retirés.", () => engine.resetRoom()),
+    "close-room": confirmThen("Fermer définitivement la salle ? Elle sera supprimée et les joueurs seront renvoyés à l'accueil.", async () => {
+      await engine.closeRoom();
+      try { localStorage.removeItem("thiercelieux:lastHostRoom"); } catch { /* ignoré */ }
+      location.href = buildUrl({});
+    }),
     "remove-player": (button) => {
       if (window.confirm(`Retirer ${button.dataset.name} de la salle ?`)) runAction(button, () => engine.removePlayer(button.dataset.id));
     },
@@ -487,7 +492,8 @@ function layoutHtml(code, joinUrl, mode) {
         </fieldset>
         <div class="danger-zone">
           <button class="btn btn-ghost" data-action="new-game-confirm">${icon("rotate")}Nouvelle partie</button>
-          <button class="btn btn-danger" data-action="reset-room">${icon("trash")}Réinitialiser la salle</button>
+          <button class="btn btn-danger" data-action="reset-room">${icon("rotate")}Réinitialiser la salle</button>
+          <button class="btn btn-danger" data-action="close-room">${icon("trash")}Fermer la salle</button>
         </div>
       </section>
       <section class="panel history">

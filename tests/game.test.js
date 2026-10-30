@@ -413,3 +413,11 @@ test("réinitialisation complète et retrait d'un joueur", async () => {
   assert.equal(engine.pub.phase, PHASES.WAITING);
   assert.equal(players.A.state.pub.players, undefined);
 });
+
+test("fermeture de la salle : la salle est supprimée et les joueurs le voient", async () => {
+  const { engine, players, hostStore, code } = await setupRoom(["A", "B", "C", "D"]);
+  await engine.closeRoom();
+  await settle(engine);
+  assert.equal(await hostStore.get(`rooms/${code}`), null);
+  assert.equal(players.A.state.pub, null);
+});
